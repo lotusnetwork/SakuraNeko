@@ -5,5 +5,7 @@ RUN mkdir /www /wwwlogs /rdb
 RUN mkdir -p /run/php /run/caddy/run/supervisor
 COPY config/php-fpm.conf /etc/php7/php-fpm.d/www.conf
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY config/caddy.conf /run/caddy/caddy.conf
+COPY config/crontabs.conf /etc/crontabs/root
 WORKDIR /www
 CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
